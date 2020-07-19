@@ -1,4 +1,18 @@
 package com.example.gcr.models;
+import lombok.Data;
 
-public class Sillon {
+import java.io.Serializable;
+import javax.persistence.*;
+@Data
+@Entity
+
+public class Sillon implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+    public Sillon() {
+
+    }
 }

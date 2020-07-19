@@ -1,4 +1,17 @@
 package com.example.gcr.models;
+import lombok.Data;
 
-public class Pabellon {
+import java.io.Serializable;
+import javax.persistence.*;
+@Data
+@Entity
+public class Pabellon implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+    public Pabellon() {
+
+    }
 }
