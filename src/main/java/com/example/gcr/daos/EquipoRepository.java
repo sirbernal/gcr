@@ -1,4 +1,8 @@
 package com.example.gcr.daos;
+import com.example.gcr.models.Equipo;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
-public interface EquipoRepository {
+public interface EquipoRepository extends CrudRepository<Equipo,Long>{
+
 }

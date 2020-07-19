@@ -16,4 +16,12 @@ public class Paciente implements Serializable{
         public Paciente() {
 
         }
+
+        public Long getId() {
+                return id;
+        }
+
+        public void setId(Long id) {
+                this.id = id;
+        }
 }
