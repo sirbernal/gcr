@@ -1,4 +1,22 @@
 package com.example.gcr.models;
+import lombok.Data;
 
-public class Quimioterapia {
+import java.io.Serializable;
+import javax.persistence.*;
+@Data
+@Entity
+public class Quimioterapia implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    public Quimioterapia() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
