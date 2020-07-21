@@ -5,22 +5,22 @@ import com.example.gcr.models.ResPabellon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("QuimioterapiaService")
+@Service("ResPabellonService")
 public class ResPabellonService {
     @Autowired
-    private ResPabellonRepository quimioterapiaRepository;
+    private ResPabellonRepository resPabellonRepository;
 
-    public ResPabellon saveUpdateQuimio(ResPabellon resPabellon){
-        return quimioterapiaRepository.save(resPabellon);
+    public ResPabellon saveUpdateRes(ResPabellon resPabellon){
+        return resPabellonRepository.save(resPabellon);
     }
     public ResPabellon findResById(ResId resId){
-        return quimioterapiaRepository.findByResId(resId);
+        return resPabellonRepository.findByResId(resId);
     }
     public Iterable<ResPabellon> listAllRes() {
-        return quimioterapiaRepository.findAll();
+        return resPabellonRepository.findAll();
     }
-    public void deleteQuimio(ResId resId){
-        quimioterapiaRepository.deleteByResId(resId);
+    public void deleteRes(ResId resId){
+        resPabellonRepository.deleteByResId(resId);
     }
 
 }
