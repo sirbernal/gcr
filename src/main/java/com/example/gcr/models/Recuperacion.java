@@ -10,11 +10,11 @@ public class Recuperacion implements Serializable {
     @EmbeddedId
     private RecuId recuId;
     private Long id_paciente;
-    private String estado;
+    private boolean estado;
 
     public Recuperacion() {
     }
-    public Recuperacion(RecuId recuId,Long id_paciente,String estado){
+    public Recuperacion(RecuId recuId,Long id_paciente,boolean estado){
         this.recuId=recuId;
         this.id_paciente=id_paciente;
         this.estado=estado;
@@ -36,11 +36,11 @@ public class Recuperacion implements Serializable {
         this.id_paciente = id_paciente;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 

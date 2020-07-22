@@ -14,13 +14,13 @@ public class Formulario implements Serializable{
     private Long id_paciente;
     private Date fecha_ingreso;
     private Date fecha_salida;
-    private int tipo;
+    private String tipo;
     private String motivo;
     private boolean estado;
 
     public Formulario() {
     }
-    public Formulario (Long id_paciente,Date fi,Date fs,int tipo, String motivo,boolean estado){
+    public Formulario (Long id_paciente,Date fi,Date fs,String tipo, String motivo,boolean estado){
         this.id_paciente=id_paciente;
         this.fecha_ingreso=fi;
         this.fecha_salida=fs;
@@ -61,11 +61,11 @@ public class Formulario implements Serializable{
         this.fecha_salida = fecha_salida;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
