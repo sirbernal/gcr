@@ -29,13 +29,12 @@ public class FormularioController {
         return new ResponseEntity<Formulario>(form, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity updateFormulario(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteFormulario(@PathVariable Long id){
         Formulario form = formularioService.findFormularioById(id);
         if(form!=null){
-            form.setEstado(!form.isEstado());
-            formularioService.saveFormulario(form);
-            return new ResponseEntity<Formulario>(form, HttpStatus.OK);
+            formularioService.deleteFormulario(id);
+            return new ResponseEntity<>(true, HttpStatus.ACCEPTED);
         }
         return new ResponseEntity<>(false,HttpStatus.BAD_REQUEST);
     }

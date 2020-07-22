@@ -36,7 +36,7 @@ public class Quimioterapia implements Serializable {
         this.id_paciente = id_paciente;
     }
 
-    public boolean getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 

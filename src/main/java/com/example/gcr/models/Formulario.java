@@ -13,20 +13,16 @@ public class Formulario implements Serializable{
     private Long id;
     private Long id_paciente;
     private Date fecha_ingreso;
-    private Date fecha_salida;
     private String tipo;
     private String motivo;
-    private boolean estado;
 
     public Formulario() {
     }
-    public Formulario (Long id_paciente,Date fi,Date fs,String tipo, String motivo,boolean estado){
+    public Formulario (Long id_paciente,Date fi,String tipo, String motivo,boolean estado){
         this.id_paciente=id_paciente;
         this.fecha_ingreso=fi;
-        this.fecha_salida=fs;
         this.tipo=tipo;
         this.motivo=motivo;
-        this.estado=estado;
     }
 
     public Long getId() {
@@ -53,14 +49,6 @@ public class Formulario implements Serializable{
         this.fecha_ingreso = fecha_ingreso;
     }
 
-    public Date getFecha_salida() {
-        return fecha_salida;
-    }
-
-    public void setFecha_salida(Date fecha_salida) {
-        this.fecha_salida = fecha_salida;
-    }
-
     public String getTipo() {
         return tipo;
     }
@@ -77,30 +65,20 @@ public class Formulario implements Serializable{
         this.motivo = motivo;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Formulario that = (Formulario) o;
         return tipo == that.tipo &&
-                estado == that.estado &&
                 id.equals(that.id) &&
                 id_paciente.equals(that.id_paciente) &&
                 fecha_ingreso.equals(that.fecha_ingreso) &&
-                fecha_salida.equals(that.fecha_salida) &&
                 motivo.equals(that.motivo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, id_paciente, fecha_ingreso, fecha_salida, tipo, motivo, estado);
+        return Objects.hash(id, id_paciente, fecha_ingreso, tipo, motivo);
     }
 }

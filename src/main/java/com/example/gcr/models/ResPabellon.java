@@ -12,15 +12,17 @@ public class ResPabellon implements Serializable {
     private ResId resId;
     private Long id_paciente;
     private Long id_equipo;
-    private String estado;
+    private boolean estado;
+    private String motivo;
 
     public ResPabellon() {
     }
-    public ResPabellon(ResId resId,Long id_paciente,Long id_equipo,String estado){
+    public ResPabellon(ResId resId,Long id_paciente,Long id_equipo,boolean estado,String motivo){
         this.resId=resId;
         this.id_paciente=id_paciente;
         this.id_equipo=id_equipo;
         this.estado=estado;
+        this.motivo=motivo;
     }
 
     public ResId getResId() {
@@ -47,12 +49,20 @@ public class ResPabellon implements Serializable {
         this.id_equipo = id_equipo;
     }
 
-    public String getEstado() {
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
     }
 
     @Override
@@ -60,14 +70,15 @@ public class ResPabellon implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ResPabellon that = (ResPabellon) o;
-        return resId.equals(that.resId) &&
+        return estado == that.estado &&
+                resId.equals(that.resId) &&
                 Objects.equals(id_paciente, that.id_paciente) &&
                 Objects.equals(id_equipo, that.id_equipo) &&
-                Objects.equals(estado, that.estado);
+                Objects.equals(motivo, that.motivo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(resId, id_paciente, id_equipo, estado);
+        return Objects.hash(resId, id_paciente, id_equipo, estado, motivo);
     }
 }

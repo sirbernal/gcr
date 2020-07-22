@@ -36,7 +36,7 @@ public class Recuperacion implements Serializable {
         this.id_paciente = id_paciente;
     }
 
-    public boolean getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 
@@ -49,9 +49,9 @@ public class Recuperacion implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recuperacion that = (Recuperacion) o;
-        return recuId.equals(that.recuId) &&
-                Objects.equals(id_paciente, that.id_paciente) &&
-                Objects.equals(estado, that.estado);
+        return estado == that.estado &&
+                recuId.equals(that.recuId) &&
+                id_paciente.equals(that.id_paciente);
     }
 
     @Override
