@@ -6,6 +6,8 @@ import com.example.gcr.models.Quimioterapia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service("QuimioterapiaService")
 public class QuimioterapiaService {
     @Autowired
@@ -20,6 +22,7 @@ public class QuimioterapiaService {
     public Iterable<Quimioterapia> listAllQuimio() {
         return quimioterapiaRepository.findAll();
     }
+    @Transactional
     public void deleteQuimio(QuimioId quimioId){
         quimioterapiaRepository.deleteByQuimioId(quimioId);
     }

@@ -44,14 +44,13 @@ public class Quimioterapia implements Serializable {
         this.estado = estado;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Quimioterapia that = (Quimioterapia) o;
-        return quimioId.equals(that.quimioId) &&
-                Objects.equals(id_paciente, that.id_paciente) &&
-                Objects.equals(estado, that.estado);
+        return quimioId.equals(that.quimioId);
     }
 
     @Override

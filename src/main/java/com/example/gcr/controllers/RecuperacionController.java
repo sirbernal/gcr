@@ -1,7 +1,6 @@
 package com.example.gcr.controllers;
 
-import com.example.gcr.models.Quimioterapia;
-import com.example.gcr.models.Recuperacion;
+import com.example.gcr.models.*;
 import com.example.gcr.services.QuimioterapiaService;
 import com.example.gcr.services.RecuperacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +26,32 @@ public class RecuperacionController {
     public ResponseEntity<Recuperacion> addRecu(@RequestBody Recuperacion recuperacion){
         Recuperacion recu = recuperacionService.saveUpdateRecu(recuperacion);
         return new ResponseEntity<Recuperacion>(recu, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity updateRecu(@RequestBody Recuperacion recuperacion){
+        Recuperacion recu = recuperacionService.findByRecuId(recuperacion.getRecuId());
+        if(recu!=null){
+            recu.setEstado(recuperacion.isEstado());
+            recu.setId_paciente(recuperacion.getId_paciente());
+            recuperacionService.saveUpdateRecu(recu);
+            return new ResponseEntity<Recuperacion>(recu, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity deleteRecu(@RequestBody Recuperacion recuperacion){
+        RecuId recuId = recuperacion.getRecuId();
+        Recuperacion recu = recuperacionService.findByRecuId(recuId);
+
+        if(recu!=null){
+            recuperacionService.deleteRecu(recuId);
+            return new ResponseEntity<>(true,HttpStatus.ACCEPTED);
+        }
+        return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
+
+
     }
 
 }

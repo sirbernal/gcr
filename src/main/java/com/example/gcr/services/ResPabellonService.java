@@ -5,6 +5,8 @@ import com.example.gcr.models.ResPabellon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service("ResPabellonService")
 public class ResPabellonService {
     @Autowired
@@ -19,6 +21,7 @@ public class ResPabellonService {
     public Iterable<ResPabellon> listAllRes() {
         return resPabellonRepository.findAll();
     }
+    @Transactional
     public void deleteRes(ResId resId){
         resPabellonRepository.deleteByResId(resId);
     }

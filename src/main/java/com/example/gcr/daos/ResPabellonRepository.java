@@ -4,7 +4,7 @@ import com.example.gcr.models.ResPabellon;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ResPabellonRepository extends CrudRepository<ResPabellon,Long>{
+public interface ResPabellonRepository extends CrudRepository<ResPabellon,ResId>{
     ResPabellon findByResId(ResId resId);
-    ResPabellon deleteByResId(ResId resId);
+    void deleteByResId(ResId resId);
 }

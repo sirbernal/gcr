@@ -29,6 +29,20 @@ public class FormularioController {
         return new ResponseEntity<Formulario>(form, HttpStatus.CREATED);
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity updateMedico(@PathVariable Long id,@RequestBody Formulario formulario){
+        Formulario form = formularioService.findFormularioById(id);
+        if(form!=null){
+            form.setFecha_ingreso(formulario.getFecha_ingreso());
+            form.setId_paciente(formulario.getId_paciente());
+            form.setMotivo(formulario.getMotivo());
+            form.setTipo(formulario.getTipo());
+            formularioService.saveFormulario(form);
+            return new ResponseEntity<Formulario>(form, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(false,HttpStatus.BAD_REQUEST);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteFormulario(@PathVariable Long id){
         Formulario form = formularioService.findFormularioById(id);

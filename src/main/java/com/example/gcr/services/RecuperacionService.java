@@ -6,6 +6,8 @@ import com.example.gcr.daos.RecuperacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service("RecuperacionService")
 public class RecuperacionService {
     @Autowired
@@ -20,6 +22,7 @@ public class RecuperacionService {
     public Iterable<Recuperacion> listAllRecu() {
         return recuperacionRepository.findAll();
     }
+    @Transactional
     public void deleteRecu(RecuId recuId){
         recuperacionRepository.deleteByRecuId(recuId);
     }
