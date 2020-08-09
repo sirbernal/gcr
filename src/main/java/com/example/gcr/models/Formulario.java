@@ -1,4 +1,5 @@
 package com.example.gcr.models;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ public class Formulario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long id_paciente;
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
     private Date fecha_ingreso;
     private String tipo;
     private String motivo;
