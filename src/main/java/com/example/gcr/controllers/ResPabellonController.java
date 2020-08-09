@@ -45,13 +45,16 @@ public class ResPabellonController {
         return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
     }
     @DeleteMapping("/delete")
-    public ResponseEntity deleteResPabellon(@RequestBody ResPabellon resPabellon){
-        ResId resId = resPabellon.getResId();
+    public ResponseEntity deleteResPabellon(@RequestBody ResId resId){
         ResPabellon resPab = resPabellonService.findResById(resId);
+        System.out.println(resId.getFecha_ingreso());
         if(resPab!=null){
             resPabellonService.deleteRes(resId);
+            System.out.println("2");
             return new ResponseEntity<>(true,HttpStatus.ACCEPTED);
+
         }
+        System.out.println("3");
         return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
 
 
