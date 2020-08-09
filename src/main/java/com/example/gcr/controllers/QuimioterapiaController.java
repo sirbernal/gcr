@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
 
+
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
 @RestController
 @RequestMapping("/reserva/sillon")
 public class QuimioterapiaController {
