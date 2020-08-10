@@ -43,10 +43,8 @@ public class RecuperacionController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity deleteRecu(@RequestBody Recuperacion recuperacion){
-        RecuId recuId = recuperacion.getRecuId();
+    public ResponseEntity deleteRecu(@RequestBody RecuId recuId){
         Recuperacion recu = recuperacionService.findByRecuId(recuId);
-
         if(recu!=null){
             recuperacionService.deleteRecu(recuId);
             return new ResponseEntity<>(true,HttpStatus.ACCEPTED);

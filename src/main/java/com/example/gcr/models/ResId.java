@@ -1,5 +1,7 @@
 package com.example.gcr.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +9,9 @@ import java.util.Objects;
 
 @Embeddable
 public class ResId implements Serializable {
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
     private Date fecha_ingreso;
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
     private Date fecha_salida;
     private Long id_pabellon;
 

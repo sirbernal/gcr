@@ -50,8 +50,7 @@ public class QuimioterapiaController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity deleteQuimio(@RequestBody Quimioterapia quimioterapia) {
-        QuimioId quimioId = quimioterapia.getQuimioId();
+    public ResponseEntity deleteQuimio(@RequestBody QuimioId quimioId) {
         Quimioterapia quimio = quimioterapiaService.findQuimioById(quimioId);
         if (quimio != null) {
             quimioterapiaService.deleteQuimio(quimioId);
