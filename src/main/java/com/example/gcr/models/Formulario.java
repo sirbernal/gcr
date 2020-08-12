@@ -13,7 +13,7 @@ public class Formulario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long id_paciente;
-    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private Date fecha_ingreso;
     private String tipo;
     private String motivo;

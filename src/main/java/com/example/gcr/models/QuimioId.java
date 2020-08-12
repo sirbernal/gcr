@@ -1,5 +1,7 @@
 package com.example.gcr.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +9,9 @@ import java.util.Objects;
 
 @Embeddable
 public class QuimioId implements Serializable {
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private Date fecha_ingreso;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private Date fecha_salida;
     private Long id_sillon;
 

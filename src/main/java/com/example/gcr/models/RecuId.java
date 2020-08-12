@@ -9,9 +9,9 @@ import java.util.Objects;
 
 @Embeddable
 public class RecuId implements Serializable {
-    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private Date fecha_ingreso;
-    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private Date fecha_salida;
     private Long id_cama;
 
